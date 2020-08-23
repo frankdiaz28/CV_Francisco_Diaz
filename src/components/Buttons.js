@@ -1,36 +1,63 @@
 import React, { useState } from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Button} from 'react-native';
 import Modals from './Modal'
+import Skills from '../modals/Skills';
 
-
-
-
-
-
-
-export default ({textBtnLeft, textBtnRight}) => {
+export default ({textBtnLeftUp, textBtnRightUp, textBtnLeftDown, textBtnRightDown}) => {
      const [visibility, setVisibility] = useState(false)
+     const [visibilityFilter, setVisibilityFilter] = useState('')
 
      const onClickModal = () => {
-        setVisibility(!visibility)
+       setVisibilityFilter('Modal1')
+       setVisibility(!visibility)
     }
 
+    const onClickModal2 = () => {
+      setVisibilityFilter('Modal2')
+      setVisibility(!visibility)
+   }
+   
+   const onClickModal3 = () => {
+    setVisibilityFilter('Modal3')
+    setVisibility(!visibility)
+ }
+
+   const onClickModal4 = () => {
+   setVisibilityFilter('Modal4')
+   setVisibility(!visibility)
+}
+
     return (
+      <>
       <View style={styles.row}> 
-       <Modals
-        visibility={visibility}
-       >
-            <Text>Prueba</Text>
-            <Button 
-            title="Cerrar" 
-            onPress={onClickModal}
-            />
-        </Modals>
+      <Modals visibility={visibility}>
+        {visibilityFilter === 'Modal1' ? <><Text>Upleft</Text></> : 
+         visibilityFilter === 'Modal2' ? <><Text>UpRight</Text></> :
+         visibilityFilter === 'Modal3' ? <><Skills /></> : 
+         visibilityFilter === 'Modal4' ? <><Text>DownRight</Text></> :
+         <></>  }
+
+          <Button title="cerrar" onPress={onClickModal}/>
+      </Modals>
+
       <TouchableOpacity
        onPress={onClickModal}
-      ><Text style={styles.buttonleft}>{textBtnLeft}</Text></TouchableOpacity>
-      <TouchableOpacity><Text style={styles.buttonright}>{textBtnRight}</Text></TouchableOpacity>
+      ><Text style={styles.buttonleft}>{textBtnLeftUp}</Text></TouchableOpacity>        
+      <TouchableOpacity
+       onPress={onClickModal2}
+      ><Text style={styles.buttonright}>{textBtnRightUp}</Text></TouchableOpacity>
       </View>
+      <View style={styles.row}>
+      <TouchableOpacity
+       onPress={onClickModal3}
+      ><Text style={styles.buttonleft}>{textBtnLeftDown}</Text></TouchableOpacity>
+      <TouchableOpacity
+       onPress={onClickModal4}
+      ><Text style={styles.buttonright}>{textBtnRightDown}</Text></TouchableOpacity>
+      </View>
+      </>
+      
+      
     )
 }
 

@@ -4,7 +4,7 @@ import {Text, StyleSheet, View} from 'react-native';
 export default () => {
     return (
         <View style={styles.row2}>
-        <Text style={styles.text}>Software Devoloper Engeenier</Text>
+        <Text style={styles.text}>SOFTWARE DEVELOPMENT ENGINEER</Text>
         </View>
     )
 }

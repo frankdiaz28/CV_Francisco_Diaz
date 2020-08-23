@@ -10,12 +10,10 @@ export default function App() {
        <Imagen />
        <Texto />
        <Buttons 
-       textBtnLeft="button1"
-       textBtnRight="button2"
-       />
-       <Buttons
-       textBtnLeft="button3"
-       textBtnRight="button4"
+       textBtnLeftUp="About me"
+       textBtnRightUp="Experience"
+       textBtnLeftDown="Skills"
+       textBtnRightDown="Contact"
        />
     </View>
   );
